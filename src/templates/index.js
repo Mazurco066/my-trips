@@ -1,9 +1,9 @@
 // Import created Templates
-import AboutTemplate from './About'
 import HomeTemplate from './Home'
+import PageTemplate from './Page'
 
 // Export pages
 export {
-  AboutTemplate,
-  HomeTemplate
+  HomeTemplate,
+  PageTemplate
 }
