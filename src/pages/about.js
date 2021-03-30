@@ -1,26 +1,39 @@
-// SSR Components
-import LinkWrapper from 'components/LinkWrapper'
-import { FaTimes } from 'react-icons/fa'
+// Template
+import { AboutTemplate } from 'templates'
+import { graphqlClient } from 'helpers'
+import { gql } from 'graphql-request'
 
-// Styles
-import * as S from 'styles/about'
+/*
+  * Basic usages
+  - getStaticPaths => Generate urls in build time. examples: /about, /trip/place
+  - getStaticProps => Add page props in build time. usage: Static pages
+  - getServerSideProps => Add page props in runtime. usage: SSR.
+  - getInitialProps => Add page props in run time. usage: SSR and SPA.
+*/
 
 // Component
-export default function About() {
+export default function AboutPage() {
   return (
-    <S.Content>
-      <LinkWrapper href="/">
-        <FaTimes />
-      </LinkWrapper>
-      <S.Heading>My Trips</S.Heading>
-      <S.Body>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna 
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </S.Body>
-    </S.Content>
+    <AboutTemplate />
   )
+}
+
+// Add static props
+export const getStaticProps = async () => {
+  const { pages } = await graphqlClient.request(gql`
+    query getPages {
+      pages: {
+        id
+        heading
+        slug
+        body {
+          html
+        }
+      }
+    }
+  `)
+  console.log('[DATA] pages', pages)
+  return {
+    props: {}
+  }
 }
