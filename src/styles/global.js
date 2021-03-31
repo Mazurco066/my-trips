@@ -93,6 +93,11 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  // Map background color
+  .leaflet-container {
+    background-color: var(--background)!important;
+  }
+
   // Input styles 
   input, input:after, input:before, textarea {
     -webkit-user-select: initial;
