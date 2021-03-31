@@ -1,9 +1,14 @@
 // Dependencies
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 // Component
 export default function Map({ places }) {
+
+  // Hooks
+  const router = useRouter()
+
   // Jsx
   return (
     <MapContainer
@@ -16,11 +21,14 @@ export default function Map({ places }) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      { places.map(({ name, location: { latitude, longitude } }, i) => (
-        <Marker 
-          key={i} 
+      { places.map(({ name, slug, location: { latitude, longitude } }, i) => (
+        <Marker
+          key={i}
           position={[ latitude, longitude ]} 
-          title={name} 
+          title={name}
+          eventHandlers={{
+            click: () => router.push(`/places/${slug}`)
+          }}
         />
       )) }
     </MapContainer>

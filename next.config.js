@@ -11,6 +11,11 @@ module.exports = withPWA({
     dest: 'public',
     disable: !isProd
   },
+  images: {
+    domains: [
+      'media.graphcms.com'
+    ]
+  },
   // Secure headers
   // async headers() {
   //   return [
@@ -27,7 +32,7 @@ module.exports = withPWA({
   //             ],
   //             imgSrc: [
   //               "'self'",
-  //               "https://*"
+  //               "media.graphcms.com"
   //             ],
   //             baseUri: 'self',
   //             formAction: 'self',

@@ -8,7 +8,7 @@ export const Content = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   max-width: var(--container);
   padding: 0 15px;
   margin: auto;

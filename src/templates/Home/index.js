@@ -1,4 +1,5 @@
 // Dependencies
+import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 
 // SSR Components
@@ -9,7 +10,7 @@ import { FaInfoCircle } from 'react-icons/fa'
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 // Component
-export default function HomeTemplate() {
+export default function HomeTemplate({ places }) {
   
   // Jsx
   return (
@@ -17,7 +18,16 @@ export default function HomeTemplate() {
       <LinkWrapper href="/about">
         <FaInfoCircle />
       </LinkWrapper>
-      <Map />
+      <Map places={places} />
     </>
   )
+}
+
+// Prop Types
+HomeTemplate.defaultProps = {
+  places: []
+}
+
+HomeTemplate.propTypes = {
+  places: PropTypes.array
 }
