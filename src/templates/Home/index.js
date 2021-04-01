@@ -1,6 +1,7 @@
 // Dependencies
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
+import { NextSeo } from 'next-seo'
 
 // SSR Components
 import LinkWrapper from 'components/LinkWrapper'
@@ -15,6 +16,11 @@ export default function HomeTemplate({ places }) {
   // Jsx
   return (
     <>
+      <NextSeo
+        title="My Trips"
+        description="A simple project to show in map places i went."
+        canonical="https://my-trips-silk.vercel.app"
+      />
       <LinkWrapper href="/about">
         <FaInfoCircle />
       </LinkWrapper>

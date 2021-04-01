@@ -10,6 +10,7 @@ export const GET_PLACE_BY_SLUG = gql`
       slug
       description {
         html
+        text
       }
       galery {
         url

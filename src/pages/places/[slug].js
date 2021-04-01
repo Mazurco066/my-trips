@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types'
 import { PlaceTemplate } from 'templates'
 import { graphqlClient } from 'api'
-import { GET_PLACE_BY_SLUG } from 'api/queries'
+import { GET_PLACE_BY_SLUG, GET_PLACES } from 'api/queries'
 
 // Component
 export default function PlacesPage({ place }) {
@@ -13,8 +13,15 @@ export default function PlacesPage({ place }) {
   )
 }
 
-// Get data from slug param (runtime)
-export async function getServerSideProps({ params }) {
+// Generate static places pages using slug
+export async function getStaticPaths() {
+  const { places } = await graphqlClient.request(GET_PLACES, { first: 20 })
+  const paths = places.map(({ slug }) => ({ params: { slug } }))
+  return { paths, fallback: true }
+}
+
+// Get data from current place
+export async function getStaticProps({ params }) {
   const { place } = await graphqlClient.request(GET_PLACE_BY_SLUG, {
     slug: params?.slug
   })

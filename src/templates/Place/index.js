@@ -1,6 +1,7 @@
 // Dependencies
 import PropTypes from 'prop-types'
 import Image from 'next/image'
+import { NextSeo } from 'next-seo'
 
 // SSR Components
 import LinkWrapper from 'components/LinkWrapper'
@@ -15,6 +16,11 @@ export default function PlaceTemplate({ place: { name, galery, description } }) 
   // Jsx
   return (
     <>
+      <NextSeo
+        title={name}
+        description={description?.text}
+        canonical={`https://my-trips-silk.vercel.app`}
+      />
       <LinkWrapper href="/">
         <FaTimes />
       </LinkWrapper>
