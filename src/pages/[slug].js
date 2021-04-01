@@ -16,7 +16,7 @@ import { PageTemplate } from 'templates'
 */
 
 // Component
-export default function Page({ heading, body, slug }) {
+export default function Page({ heading, body }) {
   
   // Hooks
   const router = useRouter()
@@ -26,7 +26,7 @@ export default function Page({ heading, body, slug }) {
 
   // Jsx
   return (
-    <PageTemplate heading={heading} body={body} slug={slug} />
+    <PageTemplate heading={heading} body={body} />
   )
 }
 
@@ -45,7 +45,6 @@ export async function getStaticProps({ params }) {
     props: {
       heading: page.heading,
       body: page.body.html,
-      slug: page.slug
     }
   }
 }
@@ -53,12 +52,10 @@ export async function getStaticProps({ params }) {
 // Prop Types
 Page.defaultProps = {
   heading: '',
-  body: '',
-  slug: ''
+  body: ''
 }
 
 Page.propTypes = {
   heading: PropTypes.string,
-  body: PropTypes.string,
-  slug: PropTypes.string
+  body: PropTypes.string
 }

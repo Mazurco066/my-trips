@@ -12,7 +12,7 @@ export const GET_PLACE_BY_SLUG = gql`
         html
         text
       }
-      galery {
+      gallery {
         url
         width
         height

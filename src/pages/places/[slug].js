@@ -16,7 +16,7 @@ export default function PlacesPage({ place }) {
 // Generate static places pages using slug
 export async function getStaticPaths() {
   const { places } = await graphqlClient.request(GET_PLACES, { first: 20 })
-  const paths = places.map(({ slug }) => ({ params: { slug } }))
+  const paths = places?.map(({ slug }) => ({ params: { slug } }))
   return { paths, fallback: true }
 }
 

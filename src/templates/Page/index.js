@@ -34,12 +34,10 @@ export default function AboutTemplate({ heading, body }) {
 // Prop Types
 AboutTemplate.defaultProps = {
   heading: '',
-  body: '',
-  slug: ''
+  body: ''
 }
 
 AboutTemplate.propTypes = {
   heading: PropTypes.string,
-  body: PropTypes.string,
-  slug: PropTypes.string
+  body: PropTypes.string
 }

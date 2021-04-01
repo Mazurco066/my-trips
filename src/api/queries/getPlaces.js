@@ -10,9 +10,8 @@ export const GET_PLACES = gql`
       slug
       description {
         html
-        text
       }
-      galery {
+      gallery {
         url
         width
         height

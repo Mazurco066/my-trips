@@ -11,7 +11,7 @@ import { FaTimes } from 'react-icons/fa'
 import * as S from './styles'
 
 // Component
-export default function PlaceTemplate({ place: { name, galery, description } }) {
+export default function PlaceTemplate({ place: { name, gallery, description } }) {
   
   // Jsx
   return (
@@ -30,7 +30,7 @@ export default function PlaceTemplate({ place: { name, galery, description } }) 
           <S.Body dangerouslySetInnerHTML={{ __html: description?.html }} />
           <S.Galery>
           {
-            galery.map(({ url }, i) => (
+            gallery?.map(({ url }, i) => (
               <Image
                 key={i}
                 width={1000}
