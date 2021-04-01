@@ -14,9 +14,12 @@ export default function HomePage({ places }) {
 }
 
 // Get data to map pins (runtime)
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { places } = await graphqlClient.request(GET_PLACES)
-  return { props: { places: places || [] } }
+  return {
+    revalidate: 5,
+    props: { places: places || [] }
+  }
 }
 
 // Prop Types

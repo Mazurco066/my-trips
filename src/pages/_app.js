@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-        <meta name="theme-color" content="#bb86fc" />
+        <meta name="theme-color" content="#e20e8d" />
       </Head>
       <DefaultSeo  {...SEO}/>
       <GlobalStyles />

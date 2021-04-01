@@ -26,7 +26,10 @@ export async function getStaticProps({ params }) {
     slug: params?.slug
   })
   if (!place) return { notFound: true }
-  return { props: { place: place || {} } }
+  return { 
+    revalidate: 5,
+    props: { place: place || {} }
+  }
 }
 
 // Prop Types
