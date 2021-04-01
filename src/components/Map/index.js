@@ -37,6 +37,11 @@ export default function Map({ places }) {
     <MapContainer
       center={[ 51.505, -0.09 ]}
       zoom={3}
+      minZoom={3}
+      maxBounds={[
+        [ -180, 180 ],
+        [ 180, -180 ]
+      ]}
       scrollWheelZoom={true}
       style={{ height: '100%', width: '100%' }}
     >
