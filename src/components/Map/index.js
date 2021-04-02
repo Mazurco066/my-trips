@@ -1,7 +1,8 @@
 // Dependencies
 import PropTypes from 'prop-types'
+import { useWindowDimensions } from 'hooks'
 import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapConsumer, MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 // Env variables
 /* eslint-disable-next-line */
@@ -31,6 +32,7 @@ export default function Map({ places }) {
 
   // Hooks
   const router = useRouter()
+  const { width } = useWindowDimensions()
 
   // Jsx
   return (
@@ -45,6 +47,12 @@ export default function Map({ places }) {
       scrollWheelZoom={true}
       style={{ height: '100%', width: '100%' }}
     >
+      <MapConsumer>
+        {(map) => {
+          if (width < 768) map.setMinZoom(2)
+          return null
+        }}
+      </MapConsumer>
       <CustomTileLayer />
       { places.map(({ name, slug, location: { latitude, longitude } }, i) => (
         <Marker
