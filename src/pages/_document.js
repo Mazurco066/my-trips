@@ -28,6 +28,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          {/* Local fonts styles  */}
+          <link href="/fonts/fonts.css" rel="stylesheet"/>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>

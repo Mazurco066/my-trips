@@ -37,45 +37,8 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  // Font config
-  @font-face {
-    font-family: "Oswald";
-    src: url("./font/Oswald-Regular.ttf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "Oswald";
-    font-weight: bold;
-    src: url("./font/Oswald-Bold.ttf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "Oswald ExtraBold";
-    src: url("./font/Oswald-Bold.ttf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "Oswald ExtraLightItalic";
-    src: url("./font/Oswald-ExtraLight.ttf") format("opentype");
-  }
-
-  @font-face {
-    font-family: "Oswald Medium";
-    src: url("./font/Oswald-Medium.ttf") format("opentype");
-  }
-
-  // Reset default html tags css
-  input, button {
-    font-family: "Oswald";
-  }
-
-  h1, h2, h3, h4, h5, h6{
-    font-family: "Oswald ExtraBold";
-  }
-
   body {
     overflow-y: auto;
-    font-family: "Oswald";
   }
 
   img {
