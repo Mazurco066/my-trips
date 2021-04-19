@@ -12,7 +12,7 @@ A Study using the following features:
 * **Custom Made Components**
 * **Formik**
 * **Graphql**
-* **Apolo Client**
+* **Graphql Request Client (Prisma Labs)**
 
 ## Setup
 
